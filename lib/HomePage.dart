@@ -20,7 +20,9 @@ class HomePage extends StatelessWidget{
           SizedBox(height: 20,),
           Padding(
             padding: const EdgeInsets.only(left: 30,right: 30),
-            child: MyTextFormFeild(),
+            child: MyTextFormFeild(
+              labelName: "Email",
+            ),
           ),
         ],
       ),

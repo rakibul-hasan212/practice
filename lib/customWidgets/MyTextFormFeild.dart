@@ -1,29 +1,61 @@
 import 'package:flutter/material.dart';
 
 class MyTextFormFeild extends StatelessWidget{
-  MyTextFormFeild({super.key});
+  //label attribute
+  final String labelName;
+  final Color? labelNameColors;
+  final double? labelNameFontSize;
+  //hint attribute
+  final String? hintMessage;
+  final double? hintMessageFontSize;
+  final Color? hintMessageColors;
+
+
+  final IconData? preIconName;
+  final Color? preIconColor;
+
+  final IconData? suffixIconName;
+  final Color? suffixIconColor;
+
+  final double? intialRadius;
+
+  MyTextFormFeild({
+    super.key,
+    required this.labelName,
+    this.labelNameColors = Colors.grey,
+    this.labelNameFontSize = 20,
+    this.hintMessage = " ",
+    this.hintMessageColors = Colors.grey,
+    this.hintMessageFontSize = 20,
+    this.preIconName,
+    this.preIconColor = Colors.grey,
+    this.suffixIconName,
+    this.suffixIconColor = Colors.grey,
+    this.intialRadius = 16
+  });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: TextEditingController(),
-      keyboardType: TextInputType.emailAddress,
+      //keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
-        label: Text("Email"),
+        label: Text(labelName),
         labelStyle: TextStyle(
-          fontSize: 20,
+          fontSize: labelNameFontSize,
           fontWeight: FontWeight.bold,
-          color: Colors.grey
+          color: labelNameColors
         ),
-        hintText: "Enter your email",
+        hintText: hintMessage,
         hintStyle: TextStyle(
-            fontSize: 20,
+            fontSize: hintMessageFontSize,
             fontWeight: FontWeight.bold,
-            color: Colors.grey
+            color: hintMessageColors
         ),
-        prefixIcon: Icon(Icons.email_outlined),
+        prefixIcon: Icon(preIconName),
+        suffixIcon: Icon(suffixIconName),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16)
+          borderRadius: BorderRadius.circular(intialRadius!)
         )
           
       ),
