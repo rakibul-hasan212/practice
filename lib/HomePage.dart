@@ -7,21 +7,21 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Colors.white,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text(
+          Text(
             "Welcome!",
             style: TextStyle(
                 fontWeight: FontWeight.bold, fontSize: 40, color: Colors.black),
           ),
-          const SizedBox(
+          SizedBox(
             height: 20,
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 30, right: 30),
+            padding: EdgeInsets.only(left: 30, right: 30),
             child: Column(
               children: [
                 MyTextFormFeild(
@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
                   hintMessage: "Enter your email",
                   preIconName: Icons.email_outlined,
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 10,
                 ),
                 MyTextFormFeild(
@@ -38,7 +38,7 @@ class HomePage extends StatelessWidget {
                   preIconName: Icons.lock_outlined,
                   suffixIconName: Icons.visibility_outlined,
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 10,
                 ),
               ],
