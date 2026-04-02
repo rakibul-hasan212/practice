@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'customWidgets/MyTextFormFeild.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,12 +12,12 @@ class HomePage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
+          const Text(
             "Welcome!",
             style: TextStyle(
                 fontWeight: FontWeight.bold, fontSize: 40, color: Colors.black),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Padding(
@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
                   hintMessage: "Enter your email",
                   preIconName: Icons.email_outlined,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 MyTextFormFeild(
@@ -38,7 +38,7 @@ class HomePage extends StatelessWidget {
                   preIconName: Icons.lock_outlined,
                   suffixIconName: Icons.visibility_outlined,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
               ],

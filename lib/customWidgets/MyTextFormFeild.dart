@@ -19,7 +19,7 @@ class MyTextFormFeild extends StatelessWidget {
 
   final double? intialRadius;
 
-  MyTextFormFeild(
+  const MyTextFormFeild(
       {super.key,
       required this.labelName,
       this.labelNameColors = Colors.grey,
