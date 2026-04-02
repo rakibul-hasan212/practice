@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practice/customWidgets/MyText.dart';
 
 import 'customWidgets/MyTextFormFeild.dart';
 
@@ -7,7 +8,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
       backgroundColor: Colors.white,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -41,6 +42,31 @@ class HomePage extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
+                Container(
+                  height: 60,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.blue[200],
+                    borderRadius: BorderRadius.circular(12)
+                  ),
+                  child: Center(child: MyText.buttonText("Log in")),
+                ),
+                SizedBox(height: 10,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    MyText.bodyText("Don't have an account?"),
+                    SizedBox(width: 5,),
+                    GestureDetector(
+                      child: MyText.buttonText("Sign Up",size: 14),
+                      onTap: (){
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Sign Up OnTap Work perfectly")));
+                      },
+                    )
+
+                  ],
+                )
+
               ],
             ),
           ),
