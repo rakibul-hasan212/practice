@@ -25,51 +25,48 @@ class Homepage extends StatefulWidget{
 }
 
 class _HomepageState extends State<Homepage> {
-  bool isTacker = false;
+
+  void onChanged(int index){
+    setState(() {
+      toDoInfo[index][0] = !toDoInfo[index][0];
+    });
+  }
+
+  List toDoInfo = [
+    [false,"Study about the Container Widget"],
+    [false,"Study about the Column Widget"],
+    [false,"Study about the Row Widget"],
+    [false,"Study about the ListView Widget"],
+    [false,"Study about the GridView Widget"],
+    [false,"Study about the SingleChildScrolView Widget"],
+    [false,"Study about the Padding Widget"],
+    [false,"Study about the Center Widget"],
+    [false,"Study about the Button Widget"],
+    [false,"Study about the Form Widget"]
+  ];
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-          backgroundColor: Colors.yellow[100],
+          backgroundColor: Colors.grey[300],
           appBar: AppBar(
-            backgroundColor: Colors.yellow[400],
+            backgroundColor: Colors.green,
             title: MyText.titleText("ToDo App"),
             centerTitle: true,
+            toolbarHeight: 80,
           ),
-          body: Column(
-            children: [
-              SizedBox(height: 20,),
-              MyToDoTile(
-                  todotext: "Study About the Container",
-                  value: isTacker,
-                  onChanged: (value){
-                setState(() {
-                   isTacker = value!;
-                });
-              }),
-              SizedBox(height: 10,),
-              MyToDoTile(
-                  todotext: "Study About the ListView",
-                  value: isTacker,
-                  onChanged: (value){
-                setState(() {
-                  isTacker = value!;
-                });
-              }),
-              SizedBox(height: 10,),
-              MyToDoTile(
-                  todotext: "Study About the CustomWidgets making for reuse",
-                  value: isTacker,
-                  onChanged: (value){
-                setState(() {
-                  isTacker = value!;
-                });
+          body: ListView.builder(
+              itemCount: toDoInfo.length,
+              itemBuilder: (context , index){
+                return MyToDoTile(
+                    value: toDoInfo[index][0],
+                    onChanged:(p0){
+                      onChanged(index);
+                    },
+                  todotext: toDoInfo[index][1]
+                );
               })
-              
-            ],
-          ),
-
     )
     );
   }

@@ -19,7 +19,11 @@ class MyTextFormFeild extends StatelessWidget {
 
   final double? intialRadius;
 
-  const MyTextFormFeild(
+  final TextEditingController ControllerMassage;
+  final TextInputType keyboardValue;
+  VoidCallback ValidatorMethod;
+
+   MyTextFormFeild(
       {super.key,
       required this.labelName,
       this.labelNameColors = Colors.grey,
@@ -31,13 +35,17 @@ class MyTextFormFeild extends StatelessWidget {
       this.preIconColor = Colors.grey,
       this.suffixIconName,
       this.suffixIconColor = Colors.grey,
-      this.intialRadius = 16});
+      this.intialRadius = 16,
+      required this.ControllerMassage,
+      required this.keyboardValue,
+      required this.ValidatorMethod});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      //controller: TextEditingController(), since it's a statelesswidget that's why it comment
-      //keyboardType: TextInputType.emailAddress,
+      controller: ControllerMassage, //since it's a statelesswidget that's why it comment
+      keyboardType: TextInputType.emailAddress,
+      //validator: ValidatorMethod(),
       decoration: InputDecoration(
           label: Text(labelName),
           labelStyle: TextStyle(
@@ -58,7 +66,9 @@ class MyTextFormFeild extends StatelessWidget {
             color: suffixIconColor,
           ),
           border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(intialRadius!))),
+              borderRadius: BorderRadius.circular(intialRadius!)
+          )
+      ),
     );
   }
 }
