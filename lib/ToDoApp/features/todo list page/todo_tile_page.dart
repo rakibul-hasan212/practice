@@ -1,30 +1,16 @@
 
 import 'package:flutter/material.dart';
-import 'package:practice/ToDoApp/MyToDoTile.dart';
-import 'package:practice/customWidgets/MyText.dart';
-void main(){
-  runApp(MyApp());
-}
-class MyApp extends StatelessWidget{
-  MyApp({super.key});
+import 'package:practice/ToDoApp/widgets/custom_widgets/MyToDoTile.dart';
+import 'package:practice/ToDoApp/widgets/custom_widgets/MyText.dart';
+class todo_tile_page extends StatefulWidget{
+
+  todo_tile_page({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Homepage(),
-    );
-  }
-}
-class Homepage extends StatefulWidget{
-
-  Homepage({super.key});
-
-  @override
-  State<Homepage> createState() => _HomepageState();
+  State<todo_tile_page> createState() => _HomepageState();
 }
 
-class _HomepageState extends State<Homepage> {
+class _HomepageState extends State<todo_tile_page> {
 
   void onChanged(int index){
     setState(() {
@@ -38,7 +24,7 @@ class _HomepageState extends State<Homepage> {
     [false,"Study about the Row Widget"],
     [false,"Study about the ListView Widget"],
     [false,"Study about the GridView Widget"],
-    [false,"Study about the SingleChildScrolView Widget"],
+    [false,"SingleChildScrolView Widget"],
     [false,"Study about the Padding Widget"],
     [false,"Study about the Center Widget"],
     [false,"Study about the Button Widget"],
@@ -55,6 +41,15 @@ class _HomepageState extends State<Homepage> {
             title: MyText.titleText("ToDo App"),
             centerTitle: true,
             toolbarHeight: 80,
+            leading: InkWell(
+              onTap: (){
+                Navigator.pop(context);
+              },
+              child: Icon(
+                Icons.swipe_left,
+                size: 40,color: Colors.orange,
+              ),
+            ),
           ),
           body: ListView.builder(
               itemCount: toDoInfo.length,

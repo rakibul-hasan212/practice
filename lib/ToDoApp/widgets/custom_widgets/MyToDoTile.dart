@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:practice/ToDoApp/ToDoMassage.dart';
+import 'package:practice/ToDoApp/widgets/custom_widgets/ToDoMassage.dart';
 
 class MyToDoTile extends StatelessWidget{
 

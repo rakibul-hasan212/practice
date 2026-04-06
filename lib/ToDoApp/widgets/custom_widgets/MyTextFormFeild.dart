@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practice/ToDoApp/core/validation.dart';
 
 class MyTextFormFeild extends StatelessWidget {
   //label attribute
@@ -21,7 +22,7 @@ class MyTextFormFeild extends StatelessWidget {
 
   final TextEditingController ControllerMassage;
   final TextInputType keyboardValue;
-  VoidCallback ValidatorMethod;
+  final Validation? validator;
 
    MyTextFormFeild(
       {super.key,
@@ -38,14 +39,14 @@ class MyTextFormFeild extends StatelessWidget {
       this.intialRadius = 16,
       required this.ControllerMassage,
       required this.keyboardValue,
-      required this.ValidatorMethod});
+      this.validator});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: ControllerMassage, //since it's a statelesswidget that's why it comment
       keyboardType: TextInputType.emailAddress,
-      //validator: ValidatorMethod(),
+      validator: validator,
       decoration: InputDecoration(
           label: Text(labelName),
           labelStyle: TextStyle(
